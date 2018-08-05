@@ -1,0 +1,6 @@
+framework module Pods_literary_screensaver {
+  umbrella header "Pods-literary-screensaver-umbrella.h"
+
+  export *
+  module * { export * }
+}
