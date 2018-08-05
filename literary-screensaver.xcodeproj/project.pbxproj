@@ -10,6 +10,12 @@
 		AE29A3E62116E84E003E6687 /* litclock_annotated.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE29A3E52116E84E003E6687 /* litclock_annotated.csv */; };
 		AE7CF27921167143008A6BE0 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF27821167143008A6BE0 /* Main.swift */; };
 		AE8E03702116C50A0019F126 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8E036F2116C50A0019F126 /* Quote.swift */; };
+		AEE3501321170906006455AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3501221170906006455AA /* AppDelegate.swift */; };
+		AEE3501521170907006455AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE3501421170907006455AA /* Assets.xcassets */; };
+		AEE3501821170907006455AA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE3501621170907006455AA /* MainMenu.xib */; };
+		AEE3501E2117099D006455AA /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF27821167143008A6BE0 /* Main.swift */; };
+		AEE3501F211709B5006455AA /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8E036F2116C50A0019F126 /* Quote.swift */; };
+		AEE3502021170A13006455AA /* litclock_annotated.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE29A3E52116E84E003E6687 /* litclock_annotated.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,10 +24,23 @@
 		AE7CF2722116705C008A6BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE7CF27821167143008A6BE0 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		AE8E036F2116C50A0019F126 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		AEE3501021170906006455AA /* literary-screensaver-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "literary-screensaver-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEE3501221170906006455AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AEE3501421170907006455AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEE3501721170907006455AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AEE3501921170907006455AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE3501A21170907006455AA /* literary_screensaver_test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = literary_screensaver_test.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AE7CF2672116705C008A6BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE3500D21170906006455AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7CF26D2116705C008A6BE0 /* literary-screensaver */,
+				AEE3501121170906006455AA /* literary-screensaver-test */,
 				AE7CF26C2116705C008A6BE0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7CF26B2116705C008A6BE0 /* literary-screensaver.saver */,
+				AEE3501021170906006455AA /* literary-screensaver-test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +77,18 @@
 				AE8E036F2116C50A0019F126 /* Quote.swift */,
 			);
 			path = "literary-screensaver";
+			sourceTree = "<group>";
+		};
+		AEE3501121170906006455AA /* literary-screensaver-test */ = {
+			isa = PBXGroup;
+			children = (
+				AEE3501221170906006455AA /* AppDelegate.swift */,
+				AEE3501421170907006455AA /* Assets.xcassets */,
+				AEE3501621170907006455AA /* MainMenu.xib */,
+				AEE3501921170907006455AA /* Info.plist */,
+				AEE3501A21170907006455AA /* literary_screensaver_test.entitlements */,
+			);
+			path = "literary-screensaver-test";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,18 +122,39 @@
 			productReference = AE7CF26B2116705C008A6BE0 /* literary-screensaver.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
+		AEE3500F21170906006455AA /* literary-screensaver-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEE3501D21170907006455AA /* Build configuration list for PBXNativeTarget "literary-screensaver-test" */;
+			buildPhases = (
+				AEE3500C21170906006455AA /* Sources */,
+				AEE3500D21170906006455AA /* Frameworks */,
+				AEE3500E21170906006455AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "literary-screensaver-test";
+			productName = "literary-screensaver-test";
+			productReference = AEE3501021170906006455AA /* literary-screensaver-test.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		AE7CF2622116705C008A6BE0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "James Liu";
 				TargetAttributes = {
 					AE7CF26A2116705C008A6BE0 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
+					};
+					AEE3500F21170906006455AA = {
+						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
@@ -110,6 +164,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AE7CF2612116705C008A6BE0;
 			productRefGroup = AE7CF26C2116705C008A6BE0 /* Products */;
@@ -117,6 +172,7 @@
 			projectRoot = "";
 			targets = (
 				AE7CF26A2116705C008A6BE0 /* literary-screensaver */,
+				AEE3500F21170906006455AA /* literary-screensaver-test */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +183,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE29A3E62116E84E003E6687 /* litclock_annotated.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE3500E21170906006455AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEE3502021170A13006455AA /* litclock_annotated.csv in Resources */,
+				AEE3501521170907006455AA /* Assets.xcassets in Resources */,
+				AEE3501821170907006455AA /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +208,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AEE3500C21170906006455AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEE3501F211709B5006455AA /* Quote.swift in Sources */,
+				AEE3501E2117099D006455AA /* Main.swift in Sources */,
+				AEE3501321170906006455AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AEE3501621170907006455AA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEE3501721170907006455AA /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AE7CF2732116705C008A6BE0 /* Debug */ = {
@@ -308,6 +395,47 @@
 			};
 			name = Release;
 		};
+		AEE3501B21170907006455AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "literary-screensaver-test/literary_screensaver_test.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5WFUXN96S7;
+				INFOPLIST_FILE = "literary-screensaver-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.jamesliu.literary-screensaver-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		AEE3501C21170907006455AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "literary-screensaver-test/literary_screensaver_test.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5WFUXN96S7;
+				INFOPLIST_FILE = "literary-screensaver-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.jamesliu.literary-screensaver-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -325,6 +453,15 @@
 			buildConfigurations = (
 				AE7CF2762116705C008A6BE0 /* Debug */,
 				AE7CF2772116705C008A6BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEE3501D21170907006455AA /* Build configuration list for PBXNativeTarget "literary-screensaver-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEE3501B21170907006455AA /* Debug */,
+				AEE3501C21170907006455AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
