@@ -50,7 +50,7 @@ class Main: ScreenSaverView {
      
      - Returns: an array of Quote structs
      */
-    func readCSVToQuoteArray(fileName: String) -> [Quote]! {        
+    func readCSVToQuoteArray(fileName: String) -> [Quote]! {
         let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "csv")
         let contents = try? String(contentsOfFile: path!, encoding: .utf8)
         
@@ -73,7 +73,7 @@ class Main: ScreenSaverView {
         
         if time != self.latestTime {
             clearStage()
-            drawText("time: \(quote.time) subquote: \(quote.subquote) quote: \(quote.quote) title: \(quote.title) author: \(quote.author)")
+            drawText("\(quote.quote)\n\n\(quote.title)\n\(quote.author)")
         } else {
             self.latestTime = time
         }
@@ -106,7 +106,7 @@ class Main: ScreenSaverView {
      clearStage clears the stage, by filling it with a solid colour.
      */
     func clearStage() {
-        NSColor.red.setFill()
+        NSColor(red:1.00,green:0.92,blue:0.69,alpha:1.00).setFill()
         NSRectFill(self.bounds)
     }
     
