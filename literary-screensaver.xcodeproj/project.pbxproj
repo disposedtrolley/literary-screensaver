@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE7CF26F2116705C008A6BE0 /* literary_screensaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE7CF26E2116705C008A6BE0 /* literary_screensaverView.h */; };
-		AE7CF2712116705C008A6BE0 /* literary_screensaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF2702116705C008A6BE0 /* literary_screensaverView.m */; };
+		AE7CF27921167143008A6BE0 /* SwiftSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF27821167143008A6BE0 /* SwiftSS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE7CF26B2116705C008A6BE0 /* literary-screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "literary-screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE7CF26E2116705C008A6BE0 /* literary_screensaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = literary_screensaverView.h; sourceTree = "<group>"; };
-		AE7CF2702116705C008A6BE0 /* literary_screensaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = literary_screensaverView.m; sourceTree = "<group>"; };
 		AE7CF2722116705C008A6BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE7CF27821167143008A6BE0 /* SwiftSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +46,7 @@
 		AE7CF26D2116705C008A6BE0 /* literary-screensaver */ = {
 			isa = PBXGroup;
 			children = (
-				AE7CF26E2116705C008A6BE0 /* literary_screensaverView.h */,
-				AE7CF2702116705C008A6BE0 /* literary_screensaverView.m */,
+				AE7CF27821167143008A6BE0 /* SwiftSS.swift */,
 				AE7CF2722116705C008A6BE0 /* Info.plist */,
 			);
 			path = "literary-screensaver";
@@ -62,7 +59,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7CF26F2116705C008A6BE0 /* literary_screensaverView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +94,7 @@
 				TargetAttributes = {
 					AE7CF26A2116705C008A6BE0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -133,7 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7CF2712116705C008A6BE0 /* literary_screensaverView.m in Sources */,
+				AE7CF27921167143008A6BE0 /* SwiftSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,13 +249,22 @@
 		AE7CF2762116705C008A6BE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WFUXN96S7;
 				INFOPLIST_FILE = "literary-screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.jamesliu.literary-screensaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -266,13 +272,21 @@
 		AE7CF2772116705C008A6BE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WFUXN96S7;
 				INFOPLIST_FILE = "literary-screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.jamesliu.literary-screensaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
