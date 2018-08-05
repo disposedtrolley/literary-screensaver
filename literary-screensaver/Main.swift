@@ -98,8 +98,14 @@ class Main: ScreenSaverView {
      - Parameter text: The text to draw onto the stage.
      */
     func drawText(_ text: String) {
-        NSColor.black.set()
-        text.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+        NSColor.gray.set()
+        
+        let font = NSFont.systemFont(ofSize: 48)
+        let attributes = [NSFontAttributeName: font]
+        
+//        text.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: attributes)
+        
+        text.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
     }
     
     /**
