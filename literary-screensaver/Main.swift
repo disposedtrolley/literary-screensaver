@@ -50,20 +50,16 @@ class Main: ScreenSaverView {
      
      - Returns: an array of Quote structs
      */
-    func readCSVToQuoteArray(fileName: String) -> [Quote]! {
-        var items: [Quote] = []
-        
+    func readCSVToQuoteArray(fileName: String) -> [Quote]! {        
         let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "csv")
-        
         let contents = try? String(contentsOfFile: path!, encoding: .utf8)
         
+        // Parse the CSV file into a 2D array, separating the rows by the newline character, and each
+        // column by the pipe symbol.
         let parsedCSV: [[String]] = contents!.components(separatedBy: "\n").map{ $0.components(separatedBy: "|") }
-
-        for row in parsedCSV {
-            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
-        }
         
-        return items
+        // Map each record to a new instance of Quote struct, returning the resulting array.
+        return parsedCSV.map {Quote(time: $0[0], subquote: $0[1], quote: $0[2], title: $0[3], author: $0[4])}
     }
     
     /**
