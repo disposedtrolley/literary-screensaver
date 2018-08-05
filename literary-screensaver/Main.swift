@@ -1,6 +1,6 @@
 import ScreenSaver
 
-class SwiftSS: ScreenSaverView {
+class Main: ScreenSaverView {
     
     var timer = Timer()
     var currentTime: String = ""
