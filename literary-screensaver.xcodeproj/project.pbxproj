@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE29A3E62116E84E003E6687 /* litclock_annotated.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE29A3E52116E84E003E6687 /* litclock_annotated.csv */; };
 		AE7CF27921167143008A6BE0 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF27821167143008A6BE0 /* Main.swift */; };
-		AE8E036E21167A520019F126 /* litclock_annotated.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE8E036D21167A520019F126 /* litclock_annotated.csv */; };
 		AE8E03702116C50A0019F126 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8E036F2116C50A0019F126 /* Quote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE29A3E52116E84E003E6687 /* litclock_annotated.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = litclock_annotated.csv; sourceTree = "<group>"; };
 		AE7CF26B2116705C008A6BE0 /* literary-screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "literary-screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7CF2722116705C008A6BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE7CF27821167143008A6BE0 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		AE8E036D21167A520019F126 /* litclock_annotated.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = litclock_annotated.csv; sourceTree = "<group>"; };
 		AE8E036F2116C50A0019F126 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +50,7 @@
 		AE7CF26D2116705C008A6BE0 /* literary-screensaver */ = {
 			isa = PBXGroup;
 			children = (
-				AE8E036D21167A520019F126 /* litclock_annotated.csv */,
+				AE29A3E52116E84E003E6687 /* litclock_annotated.csv */,
 				AE7CF27821167143008A6BE0 /* Main.swift */,
 				AE7CF2722116705C008A6BE0 /* Info.plist */,
 				AE8E036F2116C50A0019F126 /* Quote.swift */,
@@ -126,7 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8E036E21167A520019F126 /* litclock_annotated.csv in Resources */,
+				AE29A3E62116E84E003E6687 /* litclock_annotated.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

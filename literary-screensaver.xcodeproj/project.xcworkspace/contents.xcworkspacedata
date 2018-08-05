@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:literary-screensaver.xcodeproj">
+      location = "group:/Users/jamesliu/Documents/projects/literary-screensaver/literary-screensaver/literary-screensaver/litclock_annotated.csv">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -1,6 +1,5 @@
 import Foundation
 import ScreenSaver
-//import CSV
 
 class Main: ScreenSaverView {
     
@@ -14,7 +13,7 @@ class Main: ScreenSaverView {
         animationTimeInterval = 5
         
         // Read in the quotes CSV.
-//        self.quotes = readCSVToQuoteArray(filePath: "./litclock_annotated.csv")
+        self.quotes = readCSVToQuoteArray(fileName: "litclock_annotated")
     }
     
     required init?(coder decoder: NSCoder) {
@@ -47,22 +46,25 @@ class Main: ScreenSaverView {
     /**
      Reads a CSV file at a specified file path into an array of Quote structs.
      
-     - Parameter filePath: The path of the CSV file to read.
+     - Parameter fileName: The name of the CSV file to read.
      
      - Returns: an array of Quote structs
      */
-//    func readCSVToQuoteArray(filePath: String) -> [Quote]! {
-//        var items: [Quote] = []
-//
-//        let stream = InputStream(fileAtPath: filePath)!
-//        let csv = try! CSVReader(stream: stream, delimiter: "|")
-//
-//        while let row = csv.next() {
-//            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
-//        }
-//
-//        return items
-//    }
+    func readCSVToQuoteArray(fileName: String) -> [Quote]! {
+        var items: [Quote] = []
+        
+        let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "csv")
+        
+        let contents = try? String(contentsOfFile: path!, encoding: .utf8)
+        
+        let parsedCSV: [[String]] = contents!.components(separatedBy: "\n").map{ $0.components(separatedBy: "|") }
+
+        for row in parsedCSV {
+            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
+        }
+        
+        return items
+    }
     
     /**
      animateOneFrame is called every time the screen saver frame is to be updated, and
@@ -71,11 +73,11 @@ class Main: ScreenSaverView {
     override func animateOneFrame() {
         let time = getTime()
         
-//        let quote = getQuoteFor(time: time)
+        let quote = getQuoteFor(time: time)
         
         if time != self.latestTime {
             clearStage()
-            drawText(time)
+            drawText(quote.quote)
         } else {
             self.latestTime = time
         }
