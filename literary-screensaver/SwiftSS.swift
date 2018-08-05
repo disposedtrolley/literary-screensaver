@@ -19,7 +19,8 @@ class SwiftSS: ScreenSaverView {
     }
     
     override func animateOneFrame() {
-        currentTime.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+        clearStage()
+        drawTime()
     }
     
     func updateTime() {
@@ -30,14 +31,20 @@ class SwiftSS: ScreenSaverView {
         currentTime = formatter.string(from: date)
     }
     
+    func drawTime() {
+        NSColor.black.set()
+        currentTime.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+    }
+    
+    func clearStage() {
+        NSColor.red.setFill()
+        NSRectFill(self.bounds)
+    }
+    
     override func draw(_ rect: NSRect) {
         super.draw(rect)
         
-        NSColor.red.setFill()
-        
-        NSRectFill(self.bounds)
-        NSColor.black.set()
-        
-        currentTime.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+        clearStage()
+        drawTime()
     }
 }
