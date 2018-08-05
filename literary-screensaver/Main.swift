@@ -6,6 +6,8 @@ class Main: ScreenSaverView {
     
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
+        
+        animationTimeInterval = 5
     }
     
     required init?(coder decoder: NSCoder) {
