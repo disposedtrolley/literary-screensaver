@@ -1,6 +1,6 @@
 import Foundation
 import ScreenSaver
-import CSV
+//import CSV
 
 class Main: ScreenSaverView {
     
@@ -14,7 +14,7 @@ class Main: ScreenSaverView {
         animationTimeInterval = 5
         
         // Read in the quotes CSV.
-        self.quotes = readCSVToQuoteArray(filePath: "./litclock_annotated.csv")
+//        self.quotes = readCSVToQuoteArray(filePath: "./litclock_annotated.csv")
     }
     
     required init?(coder decoder: NSCoder) {
@@ -43,18 +43,26 @@ class Main: ScreenSaverView {
                          author: "Default Author")
         }
     }
-    func readCSVToQuoteArray(filePath: String) -> [Quote]! {
-        var items: [Quote] = []
-        
-        let stream = InputStream(fileAtPath: filePath)!
-        let csv = try! CSVReader(stream: stream, delimiter: "|")
-        
-        while let row = csv.next() {
-            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
-        }
-        
-        return items
-    }
+    
+    /**
+     Reads a CSV file at a specified file path into an array of Quote structs.
+     
+     - Parameter filePath: The path of the CSV file to read.
+     
+     - Returns: an array of Quote structs
+     */
+//    func readCSVToQuoteArray(filePath: String) -> [Quote]! {
+//        var items: [Quote] = []
+//
+//        let stream = InputStream(fileAtPath: filePath)!
+//        let csv = try! CSVReader(stream: stream, delimiter: "|")
+//
+//        while let row = csv.next() {
+//            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
+//        }
+//
+//        return items
+//    }
     
     /**
      animateOneFrame is called every time the screen saver frame is to be updated, and
@@ -62,6 +70,8 @@ class Main: ScreenSaverView {
      */
     override func animateOneFrame() {
         let time = getTime()
+        
+//        let quote = getQuoteFor(time: time)
         
         if time != self.latestTime {
             clearStage()

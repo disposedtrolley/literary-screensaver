@@ -7,21 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D64E9D71E2D5FBAC8AEF8E1 /* Pods_literary_screensaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ABAEB68C4B995556D67861 /* Pods_literary_screensaver.framework */; };
 		AE7CF27921167143008A6BE0 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7CF27821167143008A6BE0 /* Main.swift */; };
 		AE8E036E21167A520019F126 /* litclock_annotated.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE8E036D21167A520019F126 /* litclock_annotated.csv */; };
 		AE8E03702116C50A0019F126 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8E036F2116C50A0019F126 /* Quote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12E8748C5D5F02EAD4534C1A /* Pods-literary-screensaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-literary-screensaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-literary-screensaver/Pods-literary-screensaver.release.xcconfig"; sourceTree = "<group>"; };
-		71D9651C43680D2F7695702E /* Pods-literary-screensaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-literary-screensaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-literary-screensaver/Pods-literary-screensaver.debug.xcconfig"; sourceTree = "<group>"; };
 		AE7CF26B2116705C008A6BE0 /* literary-screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "literary-screensaver.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE7CF2722116705C008A6BE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE7CF27821167143008A6BE0 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		AE8E036D21167A520019F126 /* litclock_annotated.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = litclock_annotated.csv; sourceTree = "<group>"; };
 		AE8E036F2116C50A0019F126 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		E0ABAEB68C4B995556D67861 /* Pods_literary_screensaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_literary_screensaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,37 +25,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D64E9D71E2D5FBAC8AEF8E1 /* Pods_literary_screensaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08436D2E5E7D02C0EEEDC464 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				71D9651C43680D2F7695702E /* Pods-literary-screensaver.debug.xcconfig */,
-				12E8748C5D5F02EAD4534C1A /* Pods-literary-screensaver.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3ED84829EBAC4B2442087B67 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E0ABAEB68C4B995556D67861 /* Pods_literary_screensaver.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AE7CF2612116705C008A6BE0 = {
 			isa = PBXGroup;
 			children = (
 				AE7CF26D2116705C008A6BE0 /* literary-screensaver */,
 				AE7CF26C2116705C008A6BE0 /* Products */,
-				08436D2E5E7D02C0EEEDC464 /* Pods */,
-				3ED84829EBAC4B2442087B67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +75,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE7CF2752116705C008A6BE0 /* Build configuration list for PBXNativeTarget "literary-screensaver" */;
 			buildPhases = (
-				EC3EA97FD58CCC823F23BE4F /* [CP] Check Pods Manifest.lock */,
 				AE7CF2662116705C008A6BE0 /* Sources */,
 				AE7CF2672116705C008A6BE0 /* Frameworks */,
 				AE7CF2682116705C008A6BE0 /* Headers */,
@@ -157,27 +132,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		EC3EA97FD58CCC823F23BE4F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-literary-screensaver-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		AE7CF2662116705C008A6BE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -194,6 +148,7 @@
 		AE7CF2732116705C008A6BE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -242,6 +197,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@loader_path/../Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -252,6 +211,7 @@
 		AE7CF2742116705C008A6BE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -294,6 +254,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@loader_path/../Frameworks",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -303,7 +267,6 @@
 		};
 		AE7CF2762116705C008A6BE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71D9651C43680D2F7695702E /* Pods-literary-screensaver.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -313,7 +276,6 @@
 				INFOPLIST_FILE = "literary-screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
@@ -327,7 +289,6 @@
 		};
 		AE7CF2772116705C008A6BE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12E8748C5D5F02EAD4534C1A /* Pods-literary-screensaver.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -337,7 +298,6 @@
 				INFOPLIST_FILE = "literary-screensaver/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
