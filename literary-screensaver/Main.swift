@@ -43,7 +43,7 @@ class Main: ScreenSaverView {
         
         if time != self.latestTime {
             clearStage()
-            drawTime(time)
+            drawText(time)
         } else {
             self.latestTime = time
         }
@@ -63,15 +63,13 @@ class Main: ScreenSaverView {
     }
     
     /**
-     drawTime draws the current time as a formatted string onto the screen saver
-     stage.
+     drawText draws a provided string to the bottom-left of the stage.
      
-     - Parameter time: The current time formatted as HH:mm
+     - Parameter text: The text to draw onto the stage.
      */
-    func drawTime(_ time: String) {
-        let time = getTime()
+    func drawText(_ text: String) {
         NSColor.black.set()
-        time.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+        text.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
     }
     
     /**
@@ -91,6 +89,6 @@ class Main: ScreenSaverView {
         let time = getTime()
         
         clearStage()
-        drawTime(time)
+        drawText(time)
     }
 }
