@@ -1,17 +1,37 @@
+import Foundation
 import ScreenSaver
+import CSV
 
 class Main: ScreenSaverView {
     
     var latestTime: String = ""
+    var quotes: [Quote] = []
     
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
         
+        // Only update the frame every 5 seconds.
         animationTimeInterval = 5
+        
+        // Read in the quotes CSV.
+        self.quotes = readCSVToQuoteArray(filePath: "./litclock_annotated.csv")
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+    }
+    
+    func readCSVToQuoteArray(filePath: String) -> [Quote]! {
+        var items: [Quote] = []
+        
+        let stream = InputStream(fileAtPath: filePath)!
+        let csv = try! CSVReader(stream: stream, delimiter: "|")
+        
+        while let row = csv.next() {
+            items.append(Quote(time: row[0], subquote: row[1], quote: row[2], title: row[3], author: row[4]))
+        }
+        
+        return items
     }
     
     /**
@@ -21,11 +41,11 @@ class Main: ScreenSaverView {
     override func animateOneFrame() {
         let time = getTime()
         
-        if time != latestTime {
+        if time != self.latestTime {
             clearStage()
             drawTime(time)
         } else {
-            latestTime = time
+            self.latestTime = time
         }
     }
     
