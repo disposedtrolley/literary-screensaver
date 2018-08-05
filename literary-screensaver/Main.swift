@@ -2,48 +2,54 @@ import ScreenSaver
 
 class Main: ScreenSaverView {
     
-    var timer = Timer()
-    var currentTime: String = ""
+    var latestTime: String = ""
     
-    /**
-     startAnimation is called after the display has faded into the screen saver, and
-     kicks off the timer which updates the current time every second.
-     */
-    override func startAnimation() {
-        super.startAnimation()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+    override init?(frame: NSRect, isPreview: Bool) {
+        super.init(frame: frame, isPreview: isPreview)
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
     }
     
     /**
      animateOneFrame is called every time the screen saver frame is to be updated, and
      is used to re-draw the time/quote if required.
-     
-     @TODO implement logic to determine if a re-draw is required.
      */
     override func animateOneFrame() {
-        clearStage()
-        drawTime()
+        let time = getTime()
+        
+        if time != latestTime {
+            clearStage()
+            drawTime(time)
+        } else {
+            latestTime = time
+        }
     }
     
     /**
-     updateTime updates the "currentTime" instance variable with the current time
-     as a formatted string.
+     getTime returns the current time as a formatted string.
+     
+     - Returns: A new string showing the current time, formatted as HH:mm
      */
-    func updateTime() {
+    func getTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
+        formatter.dateFormat = "HH:mm"
         
-        currentTime = formatter.string(from: date)
+        return formatter.string(from: date)
     }
     
     /**
      drawTime draws the current time as a formatted string onto the screen saver
      stage.
+     
+     - Parameter time: The current time formatted as HH:mm
      */
-    func drawTime() {
+    func drawTime(_ time: String) {
+        let time = getTime()
         NSColor.black.set()
-        currentTime.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
+        time.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: nil)
     }
     
     /**
@@ -60,7 +66,9 @@ class Main: ScreenSaverView {
     override func draw(_ rect: NSRect) {
         super.draw(rect)
         
+        let time = getTime()
+        
         clearStage()
-        drawTime()
+        drawTime(time)
     }
 }
