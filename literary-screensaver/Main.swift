@@ -21,6 +21,28 @@ class Main: ScreenSaverView {
         super.init(coder: decoder)
     }
     
+    /**
+     Retrieves the quote associated with the provided time. If one does not exists,
+     a default quote is returned.
+     
+     - Parameter time: The time to retrieve the quote for, as a string formatted in HH:mm
+     
+     - Returns: the Quote struct associated with the given time, or a default one if
+                a quote does not exist.
+     */
+    func getQuoteFor(time: String) -> Quote {
+        let quotesForTime = self.quotes.filter { $0.time == time }
+        
+        if quotesForTime.count > 0 {
+            return quotesForTime[0]
+        } else {
+            return Quote(time: "00:00",
+                         subquote: "Default Quote",
+                         quote: "This is the Default Quote",
+                         title: "Default Title",
+                         author: "Default Author")
+        }
+    }
     func readCSVToQuoteArray(filePath: String) -> [Quote]! {
         var items: [Quote] = []
         
