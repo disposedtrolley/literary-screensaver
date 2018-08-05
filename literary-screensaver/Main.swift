@@ -77,7 +77,7 @@ class Main: ScreenSaverView {
         
         if time != self.latestTime {
             clearStage()
-            drawText(quote.quote)
+            drawText("time: \(quote.time) subquote: \(quote.subquote) quote: \(quote.quote) title: \(quote.title) author: \(quote.author)")
         } else {
             self.latestTime = time
         }
