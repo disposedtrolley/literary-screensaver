@@ -11,3 +11,7 @@ The challenges going forward are:
 - reworking the data structure used to store the quotes (thinking a dictionary 📖 would be good, where the keys are the time and the values are the array of associated quotes; this would give us O(1) access times and an easy way to randomise a quote if we have multiple to choose from.
 
 I've only been at it for a day, but it's been a super fun learning exercise and a great excuse to get back into Swift 😃
+
+**Update**
+
+An [early release](https://github.com/disposedtrolley/literary-screensaver/releases/tag/0.1) is now available! Check it out if you're brave enough.
