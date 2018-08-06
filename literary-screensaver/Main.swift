@@ -35,11 +35,7 @@ class Main: ScreenSaverView {
         if quotesForTime.count > 0 {
             return quotesForTime[0]
         } else {
-            return Quote(time: "00:00",
-                         subquote: "Default Quote",
-                         quote: "This is the Default Quote",
-                         title: "Default Title",
-                         author: "Default Author")
+            return self.quotes[0]
         }
     }
     
