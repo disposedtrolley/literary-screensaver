@@ -96,10 +96,8 @@ class Main: ScreenSaverView {
     func drawText(_ text: String) {
         NSColor.gray.set()
         
-        let font = NSFont.systemFont(ofSize: 48)
+        let font = NSFont(name: "Baskerville", size: 48)
         let attributes = [NSFontAttributeName: font]
-        
-//        text.draw(at: NSPoint(x: 100.0, y: 200.0), withAttributes: attributes)
         
         text.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
     }
@@ -108,7 +106,7 @@ class Main: ScreenSaverView {
      clearStage clears the stage, by filling it with a solid colour.
      */
     func clearStage() {
-        NSColor(red:1.00,green:0.92,blue:0.69,alpha:1.00).setFill()
+        NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00).setFill()
         NSRectFill(self.bounds)
     }
     
