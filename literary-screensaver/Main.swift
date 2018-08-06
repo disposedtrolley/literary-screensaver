@@ -6,6 +6,14 @@ class Main: ScreenSaverView {
     var latestTime: String = ""
     var quotes: [Quote] = []
     
+    let COLOUR_BACKGROUND = NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00)
+    let COLOUR_QUOTE = NSColor(red:0.58,green:0.59,blue:0.62,alpha:1.00)
+    let COLOUR_TIME = NSColor(red:1.00,green:0.55,blue:0.65,alpha:1.00)
+    let COLOUR_METADATA = NSColor(red:0.31,green:0.31,blue:0.33,alpha:1.00)
+    
+    let FONT_QUOTE = NSFont(name: "Baskerville", size: 48)
+    let FONT_METADATA = NSFont(name: "Baskerville-BoldItalic", size: 24)
+    
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
         
@@ -70,6 +78,7 @@ class Main: ScreenSaverView {
         if time != self.latestTime {
             clearStage()
             drawQuote(quote.quote)
+            drawMetadata(title: quote.title, author: quote.author)
         } else {
             self.latestTime = time
         }
@@ -101,22 +110,25 @@ class Main: ScreenSaverView {
         quote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
     }
     
+    /**
+     drawMetadata draws the provided title and author onto the stage.
      
-     - Parameter text: The text to draw onto the stage.
+     - Parameter title: The title of the book.
+     - Parameter author: The author of the book.
      */
-        NSColor.gray.set()
+    func drawMetadata(title: String, author: String) {
+        COLOUR_METADATA.set()
         
-        let font = NSFont(name: "Baskerville", size: 48)
-        let attributes = [NSFontAttributeName: font]
+        let attributes = [NSFontAttributeName: FONT_METADATA]
         
-        text.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
+        "\(title), \(author)".draw(in: CGRect(x: 100.0, y: 50, width: 600, height: 50), withAttributes: attributes)
     }
     
     /**
      clearStage clears the stage, by filling it with a solid colour.
      */
     func clearStage() {
-        NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00).setFill()
+        COLOUR_BACKGROUND.setFill()
         NSRectFill(self.bounds)
     }
     
