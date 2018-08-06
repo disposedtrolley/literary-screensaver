@@ -69,7 +69,7 @@ class Main: ScreenSaverView {
         
         if time != self.latestTime {
             clearStage()
-            drawText("\(quote.quote)\n\n\(quote.title)\n\(quote.author)")
+            drawQuote(quote.quote)
         } else {
             self.latestTime = time
         }
@@ -89,11 +89,21 @@ class Main: ScreenSaverView {
     }
     
     /**
-     drawText draws a provided string to the bottom-left of the stage.
+     drawQuote draws the provided quote to the stage.
+     
+     - Parameter text: The quote to draw onto the stage.
+     */
+    func drawQuote(_ quote: String) {
+        COLOUR_QUOTE.set()
+        
+        let attributes = [NSFontAttributeName: FONT_QUOTE]
+        
+        quote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
+    }
+    
      
      - Parameter text: The text to draw onto the stage.
      */
-    func drawText(_ text: String) {
         NSColor.gray.set()
         
         let font = NSFont(name: "Baskerville", size: 48)
@@ -119,6 +129,6 @@ class Main: ScreenSaverView {
         let time = getTime()
         
         clearStage()
-        drawText(time)
+        drawQuote(time)
     }
 }
