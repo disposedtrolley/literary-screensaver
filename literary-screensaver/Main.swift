@@ -121,7 +121,7 @@ class Main: ScreenSaverView {
         
         let attributes = [NSFontAttributeName: FONT_METADATA]
         
-        "\(title), \(author)".draw(in: CGRect(x: 100.0, y: 50, width: 600, height: 50), withAttributes: attributes)
+        "\(title), \(author)".draw(in: CGRect(x: 100.0, y: 50, width: 1400, height: 50), withAttributes: attributes)
     }
     
     /**
