@@ -77,7 +77,7 @@ class Main: ScreenSaverView {
         
         if time != self.latestTime {
             clearStage()
-            drawQuote(quote.quote)
+            drawQuote(quote.quote, subquote: quote.subquote)
             drawMetadata(title: quote.title, author: quote.author)
         } else {
             self.latestTime = time
@@ -100,14 +100,19 @@ class Main: ScreenSaverView {
     /**
      drawQuote draws the provided quote to the stage.
      
-     - Parameter text: The quote to draw onto the stage.
+     - Parameter quote: The quote to draw onto the stage.
+     - Parameter subquote: The subquote to highlight.
      */
-    func drawQuote(_ quote: String) {
+    func drawQuote(_ quote: String, subquote: String) {
         COLOUR_QUOTE.set()
         
-        let attributes = [NSFontAttributeName: FONT_QUOTE]
+        let timeRange = (quote as NSString).range(of: subquote)
         
-        quote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700), withAttributes: attributes)
+        let styledQuote = NSMutableAttributedString(string: quote)
+        styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR_TIME, range: timeRange)
+        styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRange(0, quote.count))
+        
+        styledQuote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700))
     }
     
     /**
@@ -138,9 +143,9 @@ class Main: ScreenSaverView {
     override func draw(_ rect: NSRect) {
         super.draw(rect)
         
-        let time = getTime()
+        let quote = self.quotes[0]
         
         clearStage()
-        drawQuote(time)
+        drawQuote(quote.quote, subquote: quote.subquote)
     }
 }
