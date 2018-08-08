@@ -116,11 +116,10 @@ class Main: ScreenSaverView {
      - Parameter subquote: The subquote to highlight.
      */
     func drawQuote(_ quote: String, subquote: String) {
-        COLOUR[self.THEME_MODE]!["QUOTE"]!.set()
-        
         let timeRange = (quote as NSString).range(of: subquote)
         
         let styledQuote = NSMutableAttributedString(string: quote)
+        styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["QUOTE"]!, range: NSMakeRange(0, styledQuote.length))
         styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["TIME"]!, range: timeRange)
         styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRange(0, quote.count))
         
@@ -134,11 +133,11 @@ class Main: ScreenSaverView {
      - Parameter author: The author of the book.
      */
     func drawMetadata(title: String, author: String) {
-        COLOUR[self.THEME_MODE]!["METADATA"]!.set()
+        let styledMetadata = NSMutableAttributedString(string: "\(title), \(author)")
+        styledMetadata.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["METADATA"]!, range: NSMakeRange(0, styledMetadata.length))
+        styledMetadata.addAttribute(NSFontAttributeName, value: FONT_METADATA, range: NSMakeRange(0, styledMetadata.length))
         
-        let attributes = [NSFontAttributeName: FONT_METADATA]
-        
-        "\(title), \(author)".draw(in: CGRect(x: 100.0, y: 50, width: 1400, height: 50), withAttributes: attributes)
+        styledMetadata.draw(in: CGRect(x: 100.0, y: 50, width: 1400, height: 50))
     }
     
     /**
