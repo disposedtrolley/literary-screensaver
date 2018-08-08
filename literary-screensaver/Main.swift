@@ -6,10 +6,22 @@ class Main: ScreenSaverView {
     var latestTime: String = ""
     var quotes: [Quote] = []
     
-    let COLOUR_BACKGROUND = NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00)
-    let COLOUR_QUOTE = NSColor(red:0.58,green:0.59,blue:0.62,alpha:1.00)
-    let COLOUR_TIME = NSColor(red:1.00,green:0.55,blue:0.65,alpha:1.00)
-    let COLOUR_METADATA = NSColor(red:0.31,green:0.31,blue:0.33,alpha:1.00)
+    let THEME_MODE = "DARK"
+    
+    let COLOUR = [
+        "LIGHT": [
+            "BACKGROUND": NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00),
+            "QUOTE": NSColor(red:0.58,green:0.59,blue:0.62,alpha:1.00),
+            "TIME": NSColor(red:1.00,green:0.55,blue:0.65,alpha:1.00),
+            "METADATA": NSColor(red:0.31,green:0.31,blue:0.33,alpha:1.00)
+        ],
+        "DARK": [
+            "BACKGROUND": NSColor(red:0.31,green:0.31,blue:0.33,alpha:1.00),
+            "QUOTE": NSColor(red:0.94,green:0.95,blue:0.94,alpha:1.00),
+            "TIME": NSColor(red:1.00,green:0.55,blue:0.65,alpha:1.00),
+            "METADATA": NSColor(red:1.00,green:1.00,blue:1.00,alpha:1.00)
+        ]
+    ]
     
     let FONT_QUOTE = NSFont(name: "Baskerville", size: 48)
     let FONT_METADATA = NSFont(name: "Baskerville-BoldItalic", size: 24)
@@ -104,12 +116,11 @@ class Main: ScreenSaverView {
      - Parameter subquote: The subquote to highlight.
      */
     func drawQuote(_ quote: String, subquote: String) {
-        COLOUR_QUOTE.set()
-        
         let timeRange = (quote as NSString).range(of: subquote)
         
         let styledQuote = NSMutableAttributedString(string: quote)
-        styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR_TIME, range: timeRange)
+        styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["QUOTE"]!, range: NSMakeRange(0, styledQuote.length))
+        styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["TIME"]!, range: timeRange)
         styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRange(0, quote.count))
         
         styledQuote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700))
@@ -122,18 +133,18 @@ class Main: ScreenSaverView {
      - Parameter author: The author of the book.
      */
     func drawMetadata(title: String, author: String) {
-        COLOUR_METADATA.set()
+        let styledMetadata = NSMutableAttributedString(string: "— \(title), \(author)")
+        styledMetadata.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["METADATA"]!, range: NSMakeRange(0, styledMetadata.length))
+        styledMetadata.addAttribute(NSFontAttributeName, value: FONT_METADATA, range: NSMakeRange(0, styledMetadata.length))
         
-        let attributes = [NSFontAttributeName: FONT_METADATA]
-        
-        "\(title), \(author)".draw(in: CGRect(x: 100.0, y: 50, width: 1400, height: 50), withAttributes: attributes)
+        styledMetadata.draw(in: CGRect(x: 100.0, y: 50, width: 1400, height: 50))
     }
     
     /**
      clearStage clears the stage, by filling it with a solid colour.
      */
     func clearStage() {
-        COLOUR_BACKGROUND.setFill()
+        COLOUR[self.THEME_MODE]!["BACKGROUND"]!.setFill()
         NSRectFill(self.bounds)
     }
     
