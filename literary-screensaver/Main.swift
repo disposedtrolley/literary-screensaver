@@ -133,7 +133,7 @@ class Main: ScreenSaverView {
      - Parameter author: The author of the book.
      */
     func drawMetadata(title: String, author: String) {
-        let styledMetadata = NSMutableAttributedString(string: "\(title), \(author)")
+        let styledMetadata = NSMutableAttributedString(string: "— \(title), \(author)")
         styledMetadata.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["METADATA"]!, range: NSMakeRange(0, styledMetadata.length))
         styledMetadata.addAttribute(NSFontAttributeName, value: FONT_METADATA, range: NSMakeRange(0, styledMetadata.length))
         
