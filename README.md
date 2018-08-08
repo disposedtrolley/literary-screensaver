@@ -8,11 +8,11 @@ This is still a heavy work in progress 🚧 but expect some regular updates over
 
 The challenges going forward are:
 
-~~- styling the text, especially around differentiating the portion of the quote which represents the time (this would be easy on the web, but I don't think one can simply bold text in the middle of a string drawn to an `NSView` 🧐).~~
-~~- resizing the text based on the amount, and wrapping text to a new line where it makes sense.~~
-- reworking the data structure used to store the quotes (thinking a dictionary 📖 would be good, where the keys are the time and the values are the array of associated quotes; this would give us O(1) access times and an easy way to randomise a quote if we have multiple to choose from.
-- accounting for different screen sizes (currently works on a 15" Retina display or up, set to a 1650x1080 resolution equivalent).
-- adding more themes and customisable styling.
+- [x] styling the text, especially around differentiating the portion of the quote which represents the time (this would be easy on the web, but I don't think one can simply bold text in the middle of a string drawn to an `NSView` 🧐).
+- [x] resizing the text based on the amount, and wrapping text to a new line where it makes sense.
+- [ ] reworking the data structure used to store the quotes (thinking a dictionary 📖 would be good, where the keys are the time and the values are the array of associated quotes; this would give us O(1) access times and an easy way to randomise a quote if we have multiple to choose from.
+- [ ] accounting for different screen sizes (currently works on a 15" Retina display or up, set to a 1650x1080 resolution equivalent).
+- [ ] adding more themes and customisable styling.
 
 ~~I've only been at it for a day, but it's been a super fun learning exercise and a great excuse to get back into Swift 😃~~
 
