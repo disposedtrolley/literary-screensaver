@@ -123,7 +123,15 @@ class Main: ScreenSaverView {
         styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR[self.THEME_MODE]!["TIME"]!, range: timeRange)
         styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRange(0, quote.count))
         
-        styledQuote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700))
+        let QUOTE_PADDING_LEFT = 100;
+        let QUOTE_PADDING_RIGHT = 100;
+        let QUOTE_PADDING_TOP = 100;
+        
+        // Where frame.size is the resolution of the current screen (works for multi-monitor display)
+        let QUOTE_BOX_WIDTH = Int(frame.size.width) - (QUOTE_PADDING_LEFT + QUOTE_PADDING_RIGHT);
+        let QUOTE_BOX_HEIGHT = Int(frame.size.height) - QUOTE_PADDING_TOP;
+        
+        styledQuote.draw(in: CGRect(x: QUOTE_PADDING_LEFT, y: 0, width: QUOTE_BOX_WIDTH, height: QUOTE_BOX_HEIGHT))
     }
     
     /**
