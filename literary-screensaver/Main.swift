@@ -55,7 +55,7 @@ class Main: ScreenSaverView {
         if quotesForTime.count > 0 {
             return quotesForTime[0]
         } else {
-            return self.quotes[0]
+            return Quote(time: "00:00", subquote: "", quote: "People assume that time is a strict progression of cause to effect, but actually — from a non-linear, non-subjective viewpoint — it's more like a big ball of wibbly-wobbly... timey-wimey... stuff.", title: "Doctor Who", author: "Tenth Doctor")
         }
     }
     
