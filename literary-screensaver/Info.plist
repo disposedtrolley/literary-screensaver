@@ -21,6 +21,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 James Liu. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string>Main</string>
+	<string>literary_screensaver.Main</string>
 </dict>
 </plist>
