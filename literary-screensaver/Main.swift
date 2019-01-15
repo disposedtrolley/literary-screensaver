@@ -2,8 +2,7 @@ import Foundation
 import ScreenSaver
 
 class Main: ScreenSaverView {
-    
-    var latestTime: String = ""
+    var currQuote: Quote?
     var quotes: [Quote] = []
     
     let THEME_MODE = "DARK"
@@ -42,20 +41,20 @@ class Main: ScreenSaverView {
     
     /**
      Retrieves the quote associated with the provided time. If one does not exists,
-     a default quote is returned.
+     nil is returned.
      
      - Parameter time: The time to retrieve the quote for, as a string formatted in HH:mm
      
-     - Returns: the Quote struct associated with the given time, or a default one if
+     - Returns: the Quote struct associated with the given time, or nil if
                 a quote does not exist.
      */
-    func getQuoteFor(time: String) -> Quote {
+    func getQuoteFor(time: String) -> Quote? {
         let quotesForTime = self.quotes.filter { $0.time == time }
         
         if quotesForTime.count > 0 {
             return quotesForTime[0]
         } else {
-            return Quote(time: "00:00", subquote: "", quote: "People assume that time is a strict progression of cause to effect, but actually — from a non-linear, non-subjective viewpoint — it's more like a big ball of wibbly-wobbly... timey-wimey... stuff.", title: "Doctor Who", author: "Tenth Doctor")
+            return nil
         }
     }
     
@@ -80,20 +79,14 @@ class Main: ScreenSaverView {
     
     /**
      animateOneFrame is called every time the screen saver frame is to be updated, and
-     is used to re-draw the time/quote if required.
+     is used to pull the appropriate quote.
      */
     override func animateOneFrame() {
         let time = getTime()
+        self.currQuote = getQuoteFor(time: time)
         
-        let quote = getQuoteFor(time: time)
-        
-        if time != self.latestTime {
-            clearStage()
-            drawQuote(quote.quote, subquote: quote.subquote)
-            drawMetadata(title: quote.title, author: quote.author)
-        } else {
-            self.latestTime = time
-        }
+        // Tell Swift we want to use the draw(_:) method to handle rendering.
+        self.setNeedsDisplay(self.frame)
     }
     
     /**
@@ -157,14 +150,16 @@ class Main: ScreenSaverView {
     }
     
     /**
-     draw is called to initialise the stage of the screen saver.
+     draw is called each time the screensaver should be re-rendered.
      */
     override func draw(_ rect: NSRect) {
         super.draw(rect)
         
-        let quote = self.quotes[0]
+        // Provide a default quote if one was not pulled for the current time.
+        let quote = self.currQuote ?? Quote(time: "00:00", subquote: "", quote: "People assume that time is a strict progression of cause to effect, but actually — from a non-linear, non-subjective viewpoint — it's more like a big ball of wibbly-wobbly... timey-wimey... stuff.", title: "Doctor Who", author: "Tenth Doctor")
         
         clearStage()
         drawQuote(quote.quote, subquote: quote.subquote)
+        drawMetadata(title: quote.title, author: quote.author)
     }
 }
